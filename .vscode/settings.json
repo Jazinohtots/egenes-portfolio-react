@@ -1,0 +1,8 @@
+{
+  "typescript.tsdk": "C:/Users/sluke/Downloads/Projects/egenes-portfolio-react/egenes-portfolio-react/node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+  ,
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore"
+}
