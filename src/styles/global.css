@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #030712;
+    color: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: #030712;
+    overflow-x: hidden;
+  }
+
+  /* Custom text selection */
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.3);
+    color: #6366f1;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #030712;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(79, 70, 229, 0.2);
+}
+
+/* Grid overlay background helper */
+.grid-pattern {
+  background-image: radial-gradient(rgba(51, 65, 85, 0.3) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Section transition bands with software-engineering-inspired motifs */
+.section-transition {
+  position: relative;
+  margin: 0.5rem 1.25rem 0;
+  height: clamp(92px, 12vw, 140px);
+  border-radius: 2rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 10px 30px -18px rgba(15, 23, 42, 0.8);
+  background-color: rgba(2, 6, 23, 0.8);
+  animation: transitionPulse 12s ease-in-out infinite;
+}
+
+.section-transition::before,
+.section-transition::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.section-transition::before {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.24), transparent 30%, rgba(34, 211, 238, 0.2) 60%, rgba(129, 140, 248, 0.24));
+  mix-blend-mode: screen;
+  animation: transitionSweep 9s linear infinite;
+}
+
+.section-transition::after {
+  background-size: 18px 18px;
+  opacity: 0.5;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.95), transparent);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.95), transparent);
+  animation: transitionDrift 18s ease-in-out infinite alternate;
+}
+
+.section-transition--circuit {
+  background-image:
+    radial-gradient(circle at 20% 35%, rgba(129, 140, 248, 0.35), transparent 20%),
+    radial-gradient(circle at 85% 65%, rgba(45, 212, 191, 0.28), transparent 22%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 32px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 32px);
+}
+
+.section-transition--circuit::after {
+  background-image:
+    linear-gradient(90deg, transparent 0 8%, rgba(255,255,255,0.25) 8% 10%, transparent 10% 20%, rgba(255,255,255,0.18) 20% 22%, transparent 22% 100%),
+    radial-gradient(circle, rgba(255,255,255,0.28) 0 2px, transparent 2px);
+}
+
+.section-transition--cloud {
+  background-image:
+    radial-gradient(circle at 12% 50%, rgba(34, 211, 238, 0.12), transparent 19%),
+    radial-gradient(circle at 78% 50%, rgba(129, 140, 248, 0.2), transparent 24%),
+    linear-gradient(130deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.96));
+}
+
+.section-transition--cloud::after {
+  background-image:
+    radial-gradient(circle at 18% 40%, rgba(255,255,255,0.14) 0 4px, transparent 4px),
+    radial-gradient(circle at 44% 62%, rgba(255,255,255,0.14) 0 5px, transparent 5px),
+    radial-gradient(circle at 72% 44%, rgba(255,255,255,0.14) 0 4px, transparent 4px);
+}
+
+.section-transition--pipeline {
+  background-image:
+    linear-gradient(115deg, rgba(6, 182, 212, 0.12), transparent 38%),
+    linear-gradient(320deg, rgba(129, 140, 248, 0.12), transparent 38%),
+    linear-gradient(90deg, rgba(2, 6, 23, 0.95), rgba(15, 23, 42, 0.92));
+}
+
+.section-transition--pipeline::after {
+  background-image:
+    linear-gradient(90deg, transparent 0 18%, rgba(255,255,255,0.22) 18% 20%, transparent 20% 40%, rgba(255,255,255,0.14) 40% 42%, transparent 42% 100%),
+    linear-gradient(0deg, transparent 0 18%, rgba(255,255,255,0.16) 18% 20%, transparent 20% 100%);
+}
+
+.section-transition--mesh {
+  background-image:
+    radial-gradient(circle at 20% 40%, rgba(99, 102, 241, 0.2), transparent 20%),
+    radial-gradient(circle at 78% 60%, rgba(6, 182, 212, 0.16), transparent 24%),
+    linear-gradient(140deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.94));
+}
+
+.section-transition--mesh::after {
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.2) 0 2px, transparent 2px),
+    linear-gradient(90deg, transparent 0 48%, rgba(255,255,255,0.12) 48% 50%, transparent 50% 100%),
+    linear-gradient(0deg, transparent 0 48%, rgba(255,255,255,0.12) 48% 50%, transparent 50% 100%);
+}
+
+.section-transition--terminal {
+  background-image:
+    linear-gradient(115deg, rgba(16, 185, 129, 0.16), transparent 40%),
+    linear-gradient(320deg, rgba(129, 140, 248, 0.16), transparent 45%),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.94));
+}
+
+.section-transition--terminal::after {
+  background-image:
+    linear-gradient(90deg, transparent 0 12%, rgba(255,255,255,0.15) 12% 14%, transparent 14% 100%),
+    repeating-linear-gradient(180deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 13px);
+}
+
+.section-transition--signal {
+  background-image:
+    radial-gradient(circle at 16% 70%, rgba(129, 140, 248, 0.2), transparent 20%),
+    radial-gradient(circle at 82% 32%, rgba(16, 185, 129, 0.17), transparent 22%),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.93));
+}
+
+.section-transition--signal::after {
+  background-image:
+    linear-gradient(90deg, transparent 0 12%, rgba(255,255,255,0.2) 12% 14%, transparent 14% 24%, rgba(255,255,255,0.16) 24% 26%, transparent 26% 100%),
+    linear-gradient(0deg, transparent 0 42%, rgba(255,255,255,0.1) 42% 44%, transparent 44% 100%);
+}
+
+@keyframes transitionSweep {
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(10%); }
+}
+
+@keyframes transitionDrift {
+  0% { transform: translateY(0px) scale(1); opacity: 0.45; }
+  100% { transform: translateY(-8px) scale(1.02); opacity: 0.7; }
+}
+
+@keyframes transitionPulse {
+  0%, 100% { box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 10px 30px -18px rgba(15, 23, 42, 0.8); }
+  50% { box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 16px 36px -18px rgba(79, 70, 229, 0.35); }
+}
+
+/* Custom Keyframe Animations */
+@keyframes subtleGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-subtle-glow {
+  animation: subtleGlow 4s ease-in-out infinite;
+}
+
+/* Font utilities */
+.font-space { font-family: 'Space Grotesk', sans-serif; }
+.font-ibm { font-family: 'IBM Plex Sans', sans-serif; }
+
+/* Header portrait */
+.header-portrait { box-shadow: 0 8px 24px -12px rgba(79,70,229,0.5); }
+
+/* Marquee / ticker animation */
+.ticker-track { display: inline-flex; will-change: transform; }
+.animate-marquee { animation: marquee 28s linear infinite; }
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Section title utility for large capitalized headings */
+.section-title { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(1.75rem, 2.8vw, 3.25rem); letter-spacing: -0.01em; text-transform: uppercase; }
+
+/* Nav row styling */
+.nav-row a { padding: 0.25rem 0.5rem; }
+
+/* Command palette styles */
+.cmd-palette-backdrop { background: rgba(2,6,23,0.6); backdrop-filter: blur(6px); }
+.font-space { font-family: 'Space Grotesk', sans-serif; }
+
+/* Slight card lift for interactivity */
+.interactive-lift { transition: transform 200ms cubic-bezier(.2,.9,.2,1), box-shadow 200ms; }
+.interactive-lift:hover { transform: translateY(-6px); box-shadow: 0 18px 40px -20px rgba(79,70,229,0.5); }
+
