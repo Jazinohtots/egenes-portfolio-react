@@ -67,9 +67,12 @@ npm run preview   # serve the production build locally to sanity-check it
 All copy lives in `src/data/*.ts`, typed against the interfaces in
 `src/types.ts` — add a new object to any array and a new card/timeline
 row appears automatically. No JSX editing required for routine updates.
+- You can edit the source codeto fit your preferences.
 
 ## Before you publish
 - Replace the LinkedIn/GitHub placeholders in `src/components/Contact.tsx`.
 - Swap `public/resume.pdf` for whichever resume version you want public.
 - Selected Work descriptions are generalized on purpose — check them
   against any employer NDA before sharing externally.
+- Drop afollow and ask For explicit permission to use some of the features in the code.
+  
